@@ -270,9 +270,9 @@ function initCharts() {
           const { ctx: c } = chart;
           c.save();
           // bubble
-          const bx = pt.x, by = pt.y - 22;
+          const bx = pt.x, by = Math.max(pt.y - 18, 18);
           const text = 'Peak: play session';
-          c.font = 'bold 9px Nunito, sans-serif';
+          c.font = 'bold 10px Nunito, sans-serif';
           const tw = c.measureText(text).width;
           const pad = 6;
           c.fillStyle = '#FFCF4B';

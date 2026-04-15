@@ -163,14 +163,14 @@ body {
   font-family: 'Fredoka One', cursive;
   font-size: 32px;
   color: var(--brown-text);
-  animation: fadeUp 0.5s 0.3s ease both;
+  animation: fadeUp 0.5s 0.3s ease forwards;
 }
 
 .splash-subtitle {
   font-size: 13px;
   font-weight: 700;
   color: var(--brown-mid);
-  animation: fadeUp 0.5s 0.5s ease both;
+  animation: fadeUp 0.5s 0.5s ease forwards;
 }
 
 @keyframes fadeUp {
@@ -509,7 +509,7 @@ body {
   font-weight: 700;
   color: #FFF8EC;
   line-height: 1.5;
-  animation: fadeUp 0.5s 0.1s ease both;
+  animation: fadeUp 0.5s 0.1s ease forwards;
 }
 
 .key-insight svg {
