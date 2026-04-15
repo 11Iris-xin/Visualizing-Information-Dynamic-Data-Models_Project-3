@@ -42,10 +42,10 @@
 
     <!-- ── SPLASH ── -->
     <div class="lp-screen active" id="splash">
-      <span class="splash-paws p1"></span>
-      <span class="splash-paws p2"></span>
-      <span class="splash-paws p3"></span>
-      <span class="splash-paws p4"></span>
+      <span class="splash-paws p1">🐾</span>
+      <span class="splash-paws p2">🐾</span>
+      <span class="splash-paws p3">🐾</span>
+      <span class="splash-paws p4">🐾</span>
       <div class="splash-logo">
         <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
           <!-- cat body -->
@@ -75,7 +75,7 @@
         </svg>
       </div>
       <div class="splash-title">PawInsight</div>
-      <div class="splash-subtitle">your pet's little helper</div>
+      <div class="splash-subtitle">your pet's little helper 🐾</div>
     </div>
 
     <!-- ── ONBOARDING 1 ── -->
@@ -141,7 +141,7 @@
         </div>
 
         <div class="ob-text">
-          <div class="ob-tag" style="background:var(--yellow-soft);color:var(--yellow-deep);border-color:var(--yellow-deep);">Feature 1</div>
+          <div class="ob-tag" style="background:var(--yellow-soft);color:var(--yellow-deep);border-color:var(--yellow-deep);">🐾 Feature 1</div>
           <div class="ob-title">Little Helper</div>
           <div class="ob-desc">Remembers every moment with your pet — meals, walks, moods — so you never have to guess.</div>
         </div>
@@ -213,7 +213,7 @@
         </div>
 
         <div class="ob-text">
-          <div class="ob-tag" style="background:var(--green-soft);color:var(--green-accent);border-color:var(--green-accent);">Feature 2</div>
+          <div class="ob-tag" style="background:var(--green-soft);color:var(--green-accent);border-color:var(--green-accent);">🌟 Feature 2</div>
           <div class="ob-title">Show Off Your Pet</div>
           <div class="ob-desc">Meet nearby pet lovers who just get it. Share stories, swap tips, and find your people.</div>
         </div>
@@ -293,7 +293,7 @@
         </div>
 
         <div class="ob-text">
-          <div class="ob-tag" style="background:var(--peach);color:var(--orange-accent);border-color:var(--orange-accent);">Feature 3</div>
+          <div class="ob-tag" style="background:var(--peach);color:var(--orange-accent);border-color:var(--orange-accent);">📚 Feature 3</div>
           <div class="ob-title">No More Worries</div>
           <div class="ob-desc">A professional pet encyclopedia always in your pocket — because every pet parent deserves answers at 2 AM.</div>
         </div>
@@ -304,7 +304,7 @@
             <div class="ob-dot"></div>
             <div class="ob-dot active"></div>
           </div>
-          <button class="ob-btn-next" onclick="startApp()" style="background:var(--green-accent);color:white;border-color:var(--brown-text);box-shadow:3px 3px 0 var(--brown-text);">Let's Go</button>
+          <button class="ob-btn-next" onclick="startApp()" style="background:var(--green-accent);color:white;border-color:var(--brown-text);box-shadow:3px 3px 0 var(--brown-text);">Let's Go 🐾</button>
         </div>
       </div>
     </div>
@@ -353,6 +353,12 @@
 
       <!-- ═══════════════ DASHBOARD ═══════════════ -->
       <div class="page-section active" id="page-dashboard">
+
+        <!-- KEY INSIGHT BANNER -->
+        <div class="key-insight">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Mochi shows anxiety spikes between 7–10 PM due to noise — a pre-7 PM walk reduces stress events by ~60%
+        </div>
 
         <!-- STAT CARDS -->
         <div class="stat-grid">
@@ -417,10 +423,10 @@
 
         <!-- ACTION STRIP -->
         <div class="action-strip">
-          <div class="action-strip-icon"></div>
+          <div class="action-strip-icon">🧠</div>
           <div class="action-strip-content">
-            <div class="action-strip-title">Today's Suggestion for Mochi</div>
-            <div class="action-strip-sub">Historical data shows a pre-7 PM walk reduces evening stress events by ~60%. Try it today!</div>
+            <div class="action-strip-title">Recommended Action</div>
+            <div class="action-strip-sub">Based on recent data patterns — a pre-7 PM walk reduces evening stress events by ~60%. Historical consistency: 86%.</div>
             <div class="action-strip-btns">
               <button class="btn-action" onclick="showPage('log', document.querySelectorAll('.bn-item')[1])">Log a Walk</button>
               <button class="btn-action secondary" onclick="showPage('insights', document.querySelectorAll('.bn-item')[2])">See Patterns</button>
@@ -435,7 +441,7 @@
             <div class="chart-header">
               <div>
                 <div class="chart-title">Mood Trend This Week</div>
-                <div class="chart-subtitle">7-day score (1–10)</div>
+                <div class="chart-subtitle">7-day score (1–10) · <span style="color:var(--green-accent);font-weight:800;">↑ Peak after play sessions</span></div>
               </div>
               <span class="chart-tag badge-yellow">↗ Trend</span>
             </div>
@@ -478,7 +484,7 @@
             <div class="chart-header">
               <div>
                 <div class="chart-title">Behavior vs Mood</div>
-                <div class="chart-subtitle">Correlation scatter</div>
+                <div class="chart-subtitle">Higher activity → better mood</div>
               </div>
               <span class="chart-tag badge-yellow">⊕ Correlation</span>
             </div>
@@ -494,7 +500,7 @@
           <div class="chart-header">
             <div>
               <div class="chart-title">Mood by Hour & Day</div>
-              <div class="chart-subtitle">Darker = higher score</div>
+              <div class="chart-subtitle">Evening shows lower mood intensity</div>
             </div>
             <span class="chart-tag badge-yellow">⬛ Heat</span>
           </div>
@@ -858,7 +864,7 @@
       <div class="page-section" id="page-profile">
 
         <div class="profile-section">
-          <div class="profile-avatar"></div>
+          <div class="profile-avatar">🐕</div>
           <div class="profile-name">Mochi</div>
           <div class="profile-breed">Shiba Inu · 2 years old</div>
           <div class="mood-today-chip" style="display:inline-flex;margin-top:10px;">
@@ -890,7 +896,7 @@
         <div class="section-label">Settings</div>
         <div class="settings-list">
           <div class="settings-item">
-            <div class="settings-icon"></div>
+            <div class="settings-icon">🐾</div>
             <div>
               <div class="settings-text">Manage Pets</div>
               <div class="settings-sub">Add or edit your pets</div>
@@ -898,7 +904,7 @@
             <span class="settings-arrow">›</span>
           </div>
           <div class="settings-item">
-            <div class="settings-icon"></div>
+            <div class="settings-icon">🔔</div>
             <div>
               <div class="settings-text">Reminders</div>
               <div class="settings-sub">Daily log reminders</div>
@@ -906,7 +912,7 @@
             <span class="settings-arrow">›</span>
           </div>
           <div class="settings-item">
-            <div class="settings-icon"></div>
+            <div class="settings-icon">📊</div>
             <div>
               <div class="settings-text">Export Data</div>
               <div class="settings-sub">Download vet-ready PDF</div>
@@ -914,7 +920,7 @@
             <span class="settings-arrow">›</span>
           </div>
           <div class="settings-item">
-            <div class="settings-icon"></div>
+            <div class="settings-icon">📖</div>
             <div>
               <div class="settings-text">Pet Encyclopedia</div>
               <div class="settings-sub">Breeds, care & health tips</div>
@@ -922,7 +928,7 @@
             <span class="settings-arrow">›</span>
           </div>
           <div class="settings-item">
-            <div class="settings-icon"></div>
+            <div class="settings-icon">💬</div>
             <div>
               <div class="settings-text">Help & Feedback</div>
               <div class="settings-sub">We'd love to hear from you</div>
@@ -932,7 +938,7 @@
         </div>
 
         <div style="text-align:center;padding:20px 0 8px;font-size:11px;font-weight:700;color:var(--brown-light);">
-          PawInsight v1.0 · Made with for pets everywhere
+          PawInsight v1.0 · Made with 🐾 for pets everywhere
         </div>
 
       </div><!-- /profile -->
@@ -988,7 +994,7 @@
     <!-- TOAST -->
     <div class="toast" id="toast">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20,6 9,17 4,12"/></svg>
-      Behavior logged successfully!
+      Behavior logged successfully! 🐾
     </div>
 
   </div><!-- /app-view -->

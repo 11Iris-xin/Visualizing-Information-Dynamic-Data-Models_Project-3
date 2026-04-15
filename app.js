@@ -126,7 +126,7 @@ function submitLog() {
     showToast('Please select a mood!', true);
     return;
   }
-  showToast('Behavior logged successfully!');
+  showToast('Behavior logged successfully! 🐾');
   resetForm();
 }
 
@@ -166,6 +166,21 @@ function showToast(msg, isError) {
 /* ════════════════════════════════════════
    CHARTS (Chart.js)
    ════════════════════════════════════════ */
+
+// Helper: rounded rectangle path
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+  ctx.closePath();
+}
 
 let chartsInitialized = false;
 
@@ -217,10 +232,10 @@ function initCharts() {
           data,
           borderColor: COLORS.green,
           borderWidth: 2.5,
-          pointBackgroundColor: COLORS.green,
+          pointBackgroundColor: (c) => c.dataIndex === 5 ? '#FFCF4B' : COLORS.green,
           pointBorderColor: '#fff',
           pointBorderWidth: 2,
-          pointRadius: 5,
+          pointRadius: (c) => c.dataIndex === 5 ? 8 : 5,
           pointHoverRadius: 7,
           tension: 0.4,
           fill: true,
@@ -246,6 +261,40 @@ function initCharts() {
           },
         },
       },
+      plugins: [{
+        id: 'peakLabel',
+        afterDraw(chart) {
+          const meta = chart.getDatasetMeta(0);
+          const pt = meta.data[5]; // Saturday = index 5, peak
+          if (!pt) return;
+          const { ctx: c } = chart;
+          c.save();
+          // bubble
+          const bx = pt.x, by = pt.y - 22;
+          const text = 'Peak: play session';
+          c.font = 'bold 9px Nunito, sans-serif';
+          const tw = c.measureText(text).width;
+          const pad = 6;
+          c.fillStyle = '#FFCF4B';
+          c.strokeStyle = '#5C3D2E';
+          c.lineWidth = 1.5;
+          roundRect(c, bx - tw/2 - pad, by - 12, tw + pad*2, 18, 6);
+          c.fill(); c.stroke();
+          // text
+          c.fillStyle = '#5C3D2E';
+          c.textAlign = 'center';
+          c.textBaseline = 'middle';
+          c.fillText(text, bx, by - 3);
+          // stem
+          c.beginPath();
+          c.moveTo(bx, by + 7);
+          c.lineTo(bx, pt.y - 10);
+          c.strokeStyle = '#5C3D2E';
+          c.lineWidth = 1;
+          c.stroke();
+          c.restore();
+        }
+      }],
     });
   })();
 
@@ -260,11 +309,11 @@ function initCharts() {
         datasets: [{
           data: [35, 25, 20, 15, 5],
           backgroundColor: [
-            COLORS.yellow,
-            COLORS.green,
-            COLORS.green + '99',
-            COLORS.border,
-            '#E0D5C8',
+            '#FFCF4B',   // Playing  → yellow
+            '#C4A882',   // Napping  → warm brown
+            '#5DBB7A',   // Walking  → green
+            '#FF9E52',   // Eating   → orange
+            '#E0D5C8',   // Other    → light
           ],
           borderColor: '#fff',
           borderWidth: 2,
