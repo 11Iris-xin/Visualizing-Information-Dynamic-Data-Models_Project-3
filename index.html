@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>PawInsight — Your Pet's Best Friend</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka+One&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<div class="phone-shell">
+
+  <!-- ── STATUS BAR ── -->
+  <div class="status-bar">
+    <span>9:41</span>
+    <span style="display:flex;gap:4px;align-items:center;">
+      <svg width="14" height="10" viewBox="0 0 14 10" fill="currentColor">
+        <rect x="0" y="4" width="3" height="6" rx="1" opacity="0.4"/>
+        <rect x="4" y="2.5" width="3" height="7.5" rx="1" opacity="0.6"/>
+        <rect x="8" y="1" width="3" height="9" rx="1" opacity="0.8"/>
+        <rect x="12" y="0" width="2" height="10" rx="1"/>
+      </svg>
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="currentColor">
+        <path d="M8 3C10.5 3 12.7 4.1 14.2 5.9L15.5 4.5C13.6 2.3 11 1 8 1C5 1 2.4 2.3.5 4.5L1.8 5.9C3.3 4.1 5.5 3 8 3Z" opacity="0.4"/>
+        <path d="M8 6C9.7 6 11.2 6.8 12.2 8L13.5 6.6C12.1 5 10.2 4 8 4C5.8 4 3.9 5 2.5 6.6L3.8 8C4.8 6.8 6.3 6 8 6Z" opacity="0.7"/>
+        <circle cx="8" cy="10" r="1.5"/>
+      </svg>
+      <svg width="25" height="12" viewBox="0 0 25 12" fill="currentColor">
+        <rect x="0" y="1" width="22" height="10" rx="2.5" stroke="currentColor" stroke-width="1.2" fill="none"/>
+        <rect x="1.5" y="2.5" width="17" height="7" rx="1.5" opacity="0.8"/>
+        <path d="M23 4.5v3c.8-.4 1.3-1 1.3-1.5s-.5-1.1-1.3-1.5z"/>
+      </svg>
+    </span>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       LANDING VIEW
+  ══════════════════════════════════════════ -->
+  <div id="landing-view" class="view" style="position:relative;overflow:hidden;">
+
+    <!-- ── SPLASH ── -->
+    <div class="lp-screen active" id="splash">
+      <span class="splash-paws p1"></span>
+      <span class="splash-paws p2"></span>
+      <span class="splash-paws p3"></span>
+      <span class="splash-paws p4"></span>
+      <div class="splash-logo">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none">
+          <!-- cat body -->
+          <ellipse cx="28" cy="34" rx="16" ry="14" fill="#5C3D2E" opacity="0.9"/>
+          <!-- cat ears -->
+          <polygon points="14,22 10,10 20,18" fill="#5C3D2E" opacity="0.8"/>
+          <polygon points="42,22 46,10 36,18" fill="#5C3D2E" opacity="0.8"/>
+          <!-- inner ear -->
+          <polygon points="14,21 12,14 19,18" fill="#FFCF4B" opacity="0.6"/>
+          <polygon points="42,21 44,14 37,18" fill="#FFCF4B" opacity="0.6"/>
+          <!-- eyes -->
+          <ellipse cx="22" cy="31" rx="3" ry="3.5" fill="#FFF8EC"/>
+          <ellipse cx="34" cy="31" rx="3" ry="3.5" fill="#FFF8EC"/>
+          <circle cx="22" cy="31" r="1.5" fill="#5C3D2E"/>
+          <circle cx="34" cy="31" r="1.5" fill="#5C3D2E"/>
+          <circle cx="22.8" cy="30.2" r="0.7" fill="white"/>
+          <circle cx="34.8" cy="30.2" r="0.7" fill="white"/>
+          <!-- nose -->
+          <ellipse cx="28" cy="36" rx="1.5" ry="1" fill="#FFCF4B"/>
+          <!-- mouth -->
+          <path d="M25 37.5 Q28 40 31 37.5" stroke="#FFF8EC" stroke-width="1.5" stroke-linecap="round" fill="none"/>
+          <!-- whiskers -->
+          <line x1="12" y1="35" x2="22" y2="36" stroke="#FFF8EC" stroke-width="1" opacity="0.7"/>
+          <line x1="12" y1="37" x2="22" y2="37" stroke="#FFF8EC" stroke-width="1" opacity="0.7"/>
+          <line x1="44" y1="35" x2="34" y2="36" stroke="#FFF8EC" stroke-width="1" opacity="0.7"/>
+          <line x1="44" y1="37" x2="34" y2="37" stroke="#FFF8EC" stroke-width="1" opacity="0.7"/>
+        </svg>
+      </div>
+      <div class="splash-title">PawInsight</div>
+      <div class="splash-subtitle">your pet's little helper</div>
+    </div>
+
+    <!-- ── ONBOARDING 1 ── -->
+    <div class="lp-screen" id="ob1">
+      <div class="ob-screen" style="background:linear-gradient(180deg,#FFF8EC 0%,#FFF3D6 100%);">
+        <button class="ob-skip" onclick="startApp()">Skip</button>
+
+        <!-- Illustration: cat with notepad -->
+        <div class="ob-illo">
+          <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- ground shadow -->
+            <ellipse cx="110" cy="200" rx="55" ry="8" fill="#E8C97A" opacity="0.4"/>
+            <!-- body -->
+            <ellipse cx="110" cy="155" rx="42" ry="45" fill="#FFCF4B"/>
+            <ellipse cx="110" cy="155" rx="38" ry="41" fill="#FFD966"/>
+            <!-- tail -->
+            <path d="M150 165 Q175 145 168 120 Q165 108 157 115 Q162 130 148 148Z" fill="#FFCF4B"/>
+            <!-- left arm holding notepad -->
+            <ellipse cx="72" cy="160" rx="14" ry="10" fill="#FFD966" transform="rotate(-30 72 160)"/>
+            <!-- notepad -->
+            <rect x="48" y="140" width="40" height="50" rx="4" fill="white" stroke="#E8C97A" stroke-width="2"/>
+            <rect x="48" y="140" width="40" height="10" rx="4" fill="#FFCF4B"/>
+            <line x1="56" y1="160" x2="80" y2="160" stroke="#E8C97A" stroke-width="2"/>
+            <line x1="56" y1="168" x2="80" y2="168" stroke="#E8C97A" stroke-width="2"/>
+            <line x1="56" y1="176" x2="73" y2="176" stroke="#E8C97A" stroke-width="2"/>
+            <!-- pencil -->
+            <rect x="83" y="136" width="5" height="22" rx="2" fill="#5A9ED4" transform="rotate(20 83 136)"/>
+            <polygon points="86,157 89,163 84,163" fill="#FFD4B2" transform="rotate(20 86 157)"/>
+            <!-- right arm -->
+            <ellipse cx="148" cy="162" rx="14" ry="10" fill="#FFD966" transform="rotate(30 148 162)"/>
+            <!-- head -->
+            <ellipse cx="110" cy="110" rx="40" ry="38" fill="#FFCF4B"/>
+            <!-- ears -->
+            <polygon points="78,88 68,60 92,82" fill="#FFCF4B"/>
+            <polygon points="142,88 152,60 128,82" fill="#FFCF4B"/>
+            <polygon points="79,87 72,67 90,81" fill="#FFD4B2"/>
+            <polygon points="141,87 148,67 130,81" fill="#FFD4B2"/>
+            <!-- eyes -->
+            <ellipse cx="97" cy="108" rx="8" ry="9" fill="white"/>
+            <ellipse cx="123" cy="108" rx="8" ry="9" fill="white"/>
+            <circle cx="98" cy="109" r="5" fill="#5C3D2E"/>
+            <circle cx="124" cy="109" r="5" fill="#5C3D2E"/>
+            <circle cx="99.5" cy="107.5" r="2" fill="white"/>
+            <circle cx="125.5" cy="107.5" r="2" fill="white"/>
+            <!-- blush -->
+            <ellipse cx="87" cy="120" rx="7" ry="4" fill="#FFB4A0" opacity="0.5"/>
+            <ellipse cx="133" cy="120" rx="7" ry="4" fill="#FFB4A0" opacity="0.5"/>
+            <!-- nose -->
+            <ellipse cx="110" cy="118" rx="4" ry="3" fill="#F07070"/>
+            <!-- smile -->
+            <path d="M100 124 Q110 132 120 124" stroke="#5C3D2E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <!-- hat -->
+            <ellipse cx="110" cy="80" rx="44" ry="8" fill="#5C3D2E" opacity="0.15"/>
+            <rect x="82" y="46" width="56" height="36" rx="8" fill="#5C3D2E"/>
+            <ellipse cx="110" cy="82" rx="48" ry="9" fill="#5C3D2E" opacity="0.9"/>
+            <!-- star on hat -->
+            <polygon points="110,52 112.5,59 120,59 114,63 116.5,70 110,66 103.5,70 106,63 100,59 107.5,59" fill="#FFCF4B"/>
+            <!-- floating stars -->
+            <circle cx="168" cy="70" r="4" fill="#FFCF4B" opacity="0.7"/>
+            <circle cx="178" cy="85" r="2.5" fill="#5DBB7A" opacity="0.6"/>
+            <circle cx="155" cy="55" r="3" fill="#F07070" opacity="0.5"/>
+          </svg>
+        </div>
+
+        <div class="ob-text">
+          <div class="ob-tag" style="background:var(--yellow-soft);color:var(--yellow-deep);border-color:var(--yellow-deep);">Feature 1</div>
+          <div class="ob-title">Little Helper</div>
+          <div class="ob-desc">Remembers every moment with your pet — meals, walks, moods — so you never have to guess.</div>
+        </div>
+
+        <div class="ob-bottom">
+          <div class="ob-dots">
+            <div class="ob-dot active"></div>
+            <div class="ob-dot"></div>
+            <div class="ob-dot"></div>
+          </div>
+          <button class="ob-btn-next" onclick="goToScreen('ob2')">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ONBOARDING 2 ── -->
+    <div class="lp-screen" id="ob2">
+      <div class="ob-screen" style="background:linear-gradient(180deg,#F0FDF4 0%,#E8F9EE 100%);">
+        <button class="ob-skip" onclick="startApp()">Skip</button>
+
+        <!-- Illustration: cat with phone taking selfie -->
+        <div class="ob-illo">
+          <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- shadow -->
+            <ellipse cx="110" cy="205" rx="52" ry="8" fill="#C8EAD0" opacity="0.5"/>
+            <!-- body -->
+            <ellipse cx="110" cy="160" rx="40" ry="42" fill="#C8EAD0"/>
+            <ellipse cx="110" cy="160" rx="36" ry="38" fill="#D8F0DE"/>
+            <!-- tail wagging -->
+            <path d="M148 168 Q178 150 175 118 Q173 105 162 112 Q170 128 152 150Z" fill="#C8EAD0"/>
+            <!-- legs -->
+            <ellipse cx="90" cy="192" rx="14" ry="12" fill="#C8EAD0"/>
+            <ellipse cx="130" cy="192" rx="14" ry="12" fill="#C8EAD0"/>
+            <!-- phone held up -->
+            <rect x="128" y="100" width="36" height="58" rx="6" fill="#5C3D2E"/>
+            <rect x="131" y="103" width="30" height="48" rx="4" fill="#5A9ED4"/>
+            <!-- screen showing cat photo -->
+            <rect x="133" y="106" width="26" height="38" rx="3" fill="#C8DEF5"/>
+            <ellipse cx="146" cy="125" rx="10" ry="10" fill="#5A9ED4" opacity="0.5"/>
+            <circle cx="146" cy="125" r="6" fill="#FFCF4B"/>
+            <circle cx="146" cy="122" r="2" fill="#5C3D2E"/>
+            <path d="M141 128 Q146 132 151 128" stroke="#5C3D2E" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- camera button -->
+            <circle cx="146" cy="152" r="4" fill="white" opacity="0.5"/>
+            <!-- arm holding phone -->
+            <path d="M140 158 Q135 152 133 145" stroke="#C8EAD0" stroke-width="10" stroke-linecap="round"/>
+            <!-- head -->
+            <ellipse cx="100" cy="112" rx="38" ry="37" fill="#C8EAD0"/>
+            <!-- ears -->
+            <polygon points="70,92 60,64 84,84" fill="#C8EAD0"/>
+            <polygon points="130,92 140,64 116,84" fill="#C8EAD0"/>
+            <polygon points="71,91 64,70 83,83" fill="#A8D8B0"/>
+            <polygon points="129,91 136,70 117,83" fill="#A8D8B0"/>
+            <!-- eyes - happy squint -->
+            <path d="M88 110 Q96 105 104 110" stroke="#5C3D2E" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M110 110 Q118 105 126 110" stroke="#5C3D2E" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <!-- blush -->
+            <ellipse cx="82" cy="120" rx="8" ry="5" fill="#5DBB7A" opacity="0.3"/>
+            <ellipse cx="118" cy="120" rx="8" ry="5" fill="#5DBB7A" opacity="0.3"/>
+            <!-- nose -->
+            <ellipse cx="100" cy="118" rx="4" ry="3" fill="#5DBB7A"/>
+            <!-- big smile -->
+            <path d="M88 124 Q100 135 112 124" stroke="#5C3D2E" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+            <!-- sparkles -->
+            <path d="M44 80 L46 86 L52 88 L46 90 L44 96 L42 90 L36 88 L42 86Z" fill="#FFCF4B" opacity="0.8"/>
+            <path d="M170 60 L171.5 64.5 L176 66 L171.5 67.5 L170 72 L168.5 67.5 L164 66 L168.5 64.5Z" fill="#5DBB7A" opacity="0.7"/>
+            <circle cx="52" cy="145" r="3" fill="#FFCF4B" opacity="0.5"/>
+          </svg>
+        </div>
+
+        <div class="ob-text">
+          <div class="ob-tag" style="background:var(--green-soft);color:var(--green-accent);border-color:var(--green-accent);">Feature 2</div>
+          <div class="ob-title">Show Off Your Pet</div>
+          <div class="ob-desc">Meet nearby pet lovers who just get it. Share stories, swap tips, and find your people.</div>
+        </div>
+
+        <div class="ob-bottom">
+          <div class="ob-dots">
+            <div class="ob-dot"></div>
+            <div class="ob-dot active"></div>
+            <div class="ob-dot"></div>
+          </div>
+          <button class="ob-btn-next" onclick="goToScreen('ob3')">Next →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── ONBOARDING 3 ── -->
+    <div class="lp-screen" id="ob3">
+      <div class="ob-screen" style="background:linear-gradient(180deg,#FFF8EC 0%,#FFF0D6 100%);">
+
+        <!-- Illustration: relaxed cat reading a book -->
+        <div class="ob-illo">
+          <svg viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- cozy rug -->
+            <ellipse cx="110" cy="205" rx="65" ry="10" fill="#E8C97A" opacity="0.3"/>
+            <rect x="50" y="196" width="120" height="12" rx="6" fill="#FFCF4B" opacity="0.2"/>
+            <!-- sitting body -->
+            <ellipse cx="110" cy="170" rx="44" ry="36" fill="#FFD4B2"/>
+            <ellipse cx="110" cy="174" rx="40" ry="32" fill="#FFE0C0"/>
+            <!-- tail wrapped around -->
+            <path d="M154 175 Q172 162 168 140 Q165 128 155 134 Q160 148 148 162 Q140 172 148 178Z" fill="#FFD4B2"/>
+            <!-- book on lap -->
+            <rect x="78" y="168" width="64" height="44" rx="6" fill="#5A9ED4"/>
+            <rect x="78" y="168" width="32" height="44" rx="6" fill="#4A8EC4"/>
+            <rect x="109" y="168" width="1" height="44" fill="#3A7EB4"/>
+            <line x1="86" y1="178" x2="106" y2="178" stroke="white" stroke-width="1.5" opacity="0.6"/>
+            <line x1="86" y1="184" x2="106" y2="184" stroke="white" stroke-width="1.5" opacity="0.6"/>
+            <line x1="86" y1="190" x2="102" y2="190" stroke="white" stroke-width="1.5" opacity="0.6"/>
+            <line x1="114" y1="178" x2="134" y2="178" stroke="white" stroke-width="1.5" opacity="0.6"/>
+            <line x1="114" y1="184" x2="134" y2="184" stroke="white" stroke-width="1.5" opacity="0.6"/>
+            <line x1="114" y1="190" x2="130" y2="190" stroke="white" stroke-width="1.5" opacity="0.6"/>
+            <!-- paws on book -->
+            <ellipse cx="90" cy="168" rx="14" ry="8" fill="#FFD4B2"/>
+            <ellipse cx="130" cy="168" rx="14" ry="8" fill="#FFD4B2"/>
+            <!-- head tilted, reading glasses -->
+            <ellipse cx="110" cy="118" rx="38" ry="37" fill="#FFD4B2"/>
+            <!-- ears -->
+            <polygon points="80,96 70,68 94,88" fill="#FFD4B2"/>
+            <polygon points="140,96 150,68 126,88" fill="#FFD4B2"/>
+            <polygon points="81,95 74,74 93,87" fill="#FFCFD0" opacity="0.5"/>
+            <polygon points="139,95 146,74 127,87" fill="#FFCFD0" opacity="0.5"/>
+            <!-- glasses -->
+            <rect x="84" y="108" width="22" height="15" rx="7" fill="none" stroke="#8B6347" stroke-width="2.5"/>
+            <rect x="114" y="108" width="22" height="15" rx="7" fill="none" stroke="#8B6347" stroke-width="2.5"/>
+            <line x1="106" y1="115.5" x2="114" y2="115.5" stroke="#8B6347" stroke-width="2"/>
+            <line x1="81" y1="115" x2="76" y2="112" stroke="#8B6347" stroke-width="2"/>
+            <line x1="136" y1="115" x2="141" y2="112" stroke="#8B6347" stroke-width="2"/>
+            <!-- eyes behind glasses - concentrated -->
+            <ellipse cx="95" cy="115" rx="5" ry="5" fill="white"/>
+            <ellipse cx="125" cy="115" rx="5" ry="5" fill="white"/>
+            <circle cx="95" cy="115" r="3" fill="#5C3D2E"/>
+            <circle cx="125" cy="115" r="3" fill="#5C3D2E"/>
+            <!-- nose -->
+            <ellipse cx="110" cy="124" rx="3.5" ry="2.5" fill="#F07070"/>
+            <!-- content smile -->
+            <path d="M104 129 Q110 134 116 129" stroke="#8B6347" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <!-- reading light glow -->
+            <circle cx="160" cy="80" r="22" fill="#FFCF4B" opacity="0.15"/>
+            <circle cx="160" cy="80" r="14" fill="#FFCF4B" opacity="0.2"/>
+            <circle cx="160" cy="80" r="7" fill="#FFCF4B" opacity="0.4"/>
+            <!-- small floating icons -->
+            <circle cx="52" cy="90" r="5" fill="#FFCF4B" opacity="0.6"/>
+            <circle cx="45" cy="104" r="3" fill="#5DBB7A" opacity="0.5"/>
+            <circle cx="168" cy="118" r="4" fill="#F07070" opacity="0.4"/>
+            <!-- medical cross -->
+            <path d="M168,110 v16 M160,118 h16" stroke="#5DBB7A" stroke-width="3" stroke-linecap="round" opacity="0.5"/>
+          </svg>
+        </div>
+
+        <div class="ob-text">
+          <div class="ob-tag" style="background:var(--peach);color:var(--orange-accent);border-color:var(--orange-accent);">Feature 3</div>
+          <div class="ob-title">No More Worries</div>
+          <div class="ob-desc">A professional pet encyclopedia always in your pocket — because every pet parent deserves answers at 2 AM.</div>
+        </div>
+
+        <div class="ob-bottom">
+          <div class="ob-dots">
+            <div class="ob-dot"></div>
+            <div class="ob-dot"></div>
+            <div class="ob-dot active"></div>
+          </div>
+          <button class="ob-btn-next" onclick="startApp()" style="background:var(--green-accent);color:white;border-color:var(--brown-text);box-shadow:3px 3px 0 var(--brown-text);">Let's Go</button>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /landing-view -->
+
+
+  <!-- ══════════════════════════════════════════
+       APP VIEW
+  ══════════════════════════════════════════ -->
+  <div id="app-view" class="view">
+
+    <!-- ── APP HEADER ── -->
+    <header class="app-header">
+      <div class="app-header-left">
+        <div class="logo-icon-sm">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <ellipse cx="12" cy="13" rx="7" ry="6" fill="#5C3D2E" opacity="0.85"/>
+            <circle cx="7.5" cy="8.5" r="2.5" fill="#5C3D2E" opacity="0.6"/>
+            <circle cx="16.5" cy="8.5" r="2.5" fill="#5C3D2E" opacity="0.6"/>
+            <circle cx="9" cy="13" r="1" fill="#FFF8EC"/>
+            <circle cx="15" cy="13" r="1" fill="#FFF8EC"/>
+            <path d="M10 15.5 Q12 17 14 15.5" stroke="#FFF8EC" stroke-width="1.2" stroke-linecap="round" fill="none"/>
+          </svg>
+        </div>
+        <div class="app-title-wrap">
+          <div class="app-page-title" id="topbarTitle">Dashboard</div>
+          <div class="app-page-sub" id="topbarSub">Weekly Overview</div>
+        </div>
+      </div>
+      <div class="app-header-right">
+        <div class="pet-chip">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+            <ellipse cx="12" cy="13" rx="7" ry="6" fill="#5C3D2E" opacity="0.8"/>
+            <circle cx="7.5" cy="8.5" r="2.5" fill="#5C3D2E" opacity="0.5"/>
+            <circle cx="16.5" cy="8.5" r="2.5" fill="#5C3D2E" opacity="0.5"/>
+          </svg>
+          Mochi
+        </div>
+        <button class="icon-btn" onclick="showPage('log', document.querySelectorAll('.bn-item')[1])">+ Log</button>
+      </div>
+    </header>
+
+    <!-- ── APP CONTENT ── -->
+    <main class="app-content">
+
+      <!-- ═══════════════ DASHBOARD ═══════════════ -->
+      <div class="page-section active" id="page-dashboard">
+
+        <!-- STAT CARDS -->
+        <div class="stat-grid">
+          <div class="stat-card mood">
+            <div class="stat-label">Today's Mood</div>
+            <div class="stat-value">Happy</div>
+            <span class="stat-badge badge-green">+12% ↑</span>
+            <div class="stat-trend up" style="margin-top:6px;">Trending up this week</div>
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" fill="#C8EAD0"/>
+                <circle cx="9" cy="10" r="1.5" fill="#5DBB7A"/>
+                <circle cx="15" cy="10" r="1.5" fill="#5DBB7A"/>
+                <path d="M8 14.5 Q12 18.5 16 14.5" stroke="#5DBB7A" stroke-width="2" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="stat-card stress">
+            <div class="stat-label">Stress Trigger</div>
+            <div class="stat-value">Loud Noise</div>
+            <span class="stat-badge badge-red">3 events</span>
+            <div class="stat-trend down" style="margin-top:6px;">Eve. 7–10 PM</div>
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" fill="#FFD4D4"/>
+                <path d="M8 9 Q12 5 16 9" stroke="#F07070" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <circle cx="9" cy="11" r="1.5" fill="#F07070"/>
+                <circle cx="15" cy="11" r="1.5" fill="#F07070"/>
+                <path d="M9 15.5 Q12 13.5 15 15.5" stroke="#F07070" stroke-width="2" stroke-linecap="round" fill="none"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="stat-card behavior">
+            <div class="stat-label">Top Behavior</div>
+            <div class="stat-value">Playing</div>
+            <span class="stat-badge badge-yellow">18×/week</span>
+            <div class="stat-trend up" style="margin-top:6px;">Peak 10AM–2PM</div>
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" fill="#C8DEF5"/>
+                <path d="M8 8 L16 8 L16 16 L8 16 Z" stroke="#5A9ED4" stroke-width="2" fill="none" stroke-linejoin="round"/>
+                <circle cx="12" cy="12" r="2" fill="#5A9ED4"/>
+              </svg>
+            </div>
+          </div>
+
+          <div class="stat-card energy">
+            <div class="stat-label">Energy Level</div>
+            <div class="stat-value">High</div>
+            <span class="stat-badge badge-yellow">87/100</span>
+            <div class="stat-trend up" style="margin-top:6px;">Above avg this week</div>
+            <div class="stat-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="10" fill="#FFD4B2"/>
+                <polyline points="13,2 7,13 12,13 11,22 17,11 12,11 13,2" fill="#FF9E52" stroke="#FF9E52" stroke-linejoin="round"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- ACTION STRIP -->
+        <div class="action-strip">
+          <div class="action-strip-icon"></div>
+          <div class="action-strip-content">
+            <div class="action-strip-title">Today's Suggestion for Mochi</div>
+            <div class="action-strip-sub">Historical data shows a pre-7 PM walk reduces evening stress events by ~60%. Try it today!</div>
+            <div class="action-strip-btns">
+              <button class="btn-action" onclick="showPage('log', document.querySelectorAll('.bn-item')[1])">Log a Walk</button>
+              <button class="btn-action secondary" onclick="showPage('insights', document.querySelectorAll('.bn-item')[2])">See Patterns</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHART: Mood Trend -->
+        <div class="section-label">Behavior Timeline</div>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <div class="chart-title">Mood Trend This Week</div>
+                <div class="chart-subtitle">7-day score (1–10)</div>
+              </div>
+              <span class="chart-tag badge-yellow">↗ Trend</span>
+            </div>
+            <div class="chart-wrap" style="height:160px;">
+              <canvas id="moodLineChart"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <div class="chart-title">How Mochi Spends Time</div>
+                <div class="chart-subtitle">This week's activity split</div>
+              </div>
+              <span class="chart-tag badge-yellow">◉ Split</span>
+            </div>
+            <div class="chart-wrap" style="height:180px;">
+              <canvas id="behaviorDonut"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- CHART: Activity Bar -->
+        <div class="section-label">Activity & Correlation</div>
+        <div class="charts-grid">
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <div class="chart-title">Daily Activity Patterns</div>
+                <div class="chart-subtitle">Frequency by type</div>
+              </div>
+              <span class="chart-tag badge-yellow">▦ Daily</span>
+            </div>
+            <div class="chart-wrap" style="height:160px;">
+              <canvas id="activityBar"></canvas>
+            </div>
+          </div>
+
+          <div class="chart-card">
+            <div class="chart-header">
+              <div>
+                <div class="chart-title">Behavior vs Mood</div>
+                <div class="chart-subtitle">Correlation scatter</div>
+              </div>
+              <span class="chart-tag badge-yellow">⊕ Correlation</span>
+            </div>
+            <div class="chart-wrap" style="height:160px;">
+              <canvas id="scatterPlot"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- HEATMAP -->
+        <div class="section-label">Mood Intensity Heatmap</div>
+        <div class="chart-card" style="margin-bottom:16px;">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">Mood by Hour & Day</div>
+              <div class="chart-subtitle">Darker = higher score</div>
+            </div>
+            <span class="chart-tag badge-yellow">⬛ Heat</span>
+          </div>
+          <div id="heatmapContainer" style="padding-top:4px;"></div>
+        </div>
+
+        <!-- INSIGHTS -->
+        <div class="section-label">Auto Insights</div>
+        <div class="insights-grid">
+          <div class="insight-card">
+            <div class="insight-icon-wrap" style="background:var(--green-soft);border-color:var(--green-accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5DBB7A" stroke-width="2.5" stroke-linecap="round">
+                <polyline points="22,7 13.5,15.5 8.5,10.5 2,17"/>
+                <polyline points="16,7 22,7 22,13"/>
+              </svg>
+            </div>
+            <div>
+              <div class="insight-tag high">High Confidence</div>
+              <div class="insight-title">Play boosts mood by +34%</div>
+              <div class="insight-desc">Sessions over 20 min correlate with afternoon mood peaks.</div>
+              <div class="insight-confidence">
+                <div class="confidence-bar-wrap"><div class="confidence-bar" style="width:88%;background:var(--green-accent);"></div></div>
+                <span class="confidence-label">88%</span>
+              </div>
+              <button class="pattern-action" onclick="showPage('log', document.querySelectorAll('.bn-item')[1])">+ Log play</button>
+            </div>
+          </div>
+
+          <div class="insight-card">
+            <div class="insight-icon-wrap" style="background:var(--red-soft);border-color:var(--red-accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F07070" stroke-width="2.5" stroke-linecap="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+            </div>
+            <div>
+              <div class="insight-tag alert">Needs Attention</div>
+              <div class="insight-title">Evening anxiety detected</div>
+              <div class="insight-desc">Stress signals appear 7–10 PM, linked to noise triggers.</div>
+              <div class="insight-confidence">
+                <div class="confidence-bar-wrap"><div class="confidence-bar" style="width:76%;background:var(--red-accent);"></div></div>
+                <span class="confidence-label">76%</span>
+              </div>
+              <button class="pattern-action" onclick="showPage('insights', document.querySelectorAll('.bn-item')[2])">See tips →</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- RECENT LOG TABLE -->
+        <div class="section-label">Recent Behavior Logs</div>
+        <div class="log-table-wrap">
+          <div class="log-table-header">Latest Entries</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Activity</th>
+                <th>Mood</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10:24 AM</td>
+                <td>Playing</td>
+                <td><span class="mood-chip badge-green">Happy</span></td>
+                <td><strong style="color:var(--green-accent);">9.2</strong></td>
+              </tr>
+              <tr>
+                <td>8:10 AM</td>
+                <td>Feeding</td>
+                <td><span class="mood-chip badge-orange">Excited</span></td>
+                <td><strong style="color:var(--green-accent);">8.8</strong></td>
+              </tr>
+              <tr>
+                <td>9:30 PM ↓</td>
+                <td>Hiding</td>
+                <td><span class="mood-chip badge-red">Anxious</span></td>
+                <td><strong style="color:var(--red-accent);">2.1</strong></td>
+              </tr>
+              <tr>
+                <td>3:00 PM ↓</td>
+                <td>Napping</td>
+                <td><span class="mood-chip badge-blue">Calm</span></td>
+                <td><strong style="color:var(--blue-accent);">7.5</strong></td>
+              </tr>
+              <tr>
+                <td>11:00 AM ↓</td>
+                <td>Walk</td>
+                <td><span class="mood-chip badge-green">Happy</span></td>
+                <td><strong style="color:var(--green-accent);">8.4</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div><!-- /dashboard -->
+
+
+      <!-- ═══════════════ LOG PAGE ═══════════════ -->
+      <div class="page-section" id="page-log">
+
+        <div class="form-card">
+          <div class="form-section-title">Log Mochi's Behavior</div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/></svg>
+              Activity Type <span class="form-label-required">*</span>
+            </label>
+            <select class="form-select" id="activityInput">
+              <option value="">Select an activity…</option>
+              <option>Playing / Fetch</option>
+              <option>Morning Walk</option>
+              <option>Evening Walk</option>
+              <option>Feeding</option>
+              <option>Napping / Resting</option>
+              <option>Grooming</option>
+              <option>Training / Commands</option>
+              <option>Socializing</option>
+              <option>Hiding / Anxious behavior</option>
+              <option>Barking / Vocalizing</option>
+              <option>Vet Visit</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+              Date & Time <span class="form-label-required">*</span>
+            </label>
+            <input type="datetime-local" class="form-input" id="timeInput"/>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+              Mood / Emotion <span class="form-label-required">*</span>
+            </label>
+            <div class="mood-buttons" id="moodButtons">
+              <button class="mood-btn" onclick="selectMood(this,'happy')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#C8EAD0"/><circle cx="9" cy="10" r="1.5" fill="#5DBB7A"/><circle cx="15" cy="10" r="1.5" fill="#5DBB7A"/><path d="M8 14.5 Q12 18 16 14.5" stroke="#5DBB7A" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+                Happy
+              </button>
+              <button class="mood-btn" onclick="selectMood(this,'excited')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FFD4B2"/><circle cx="9" cy="10" r="1.5" fill="#FF9E52"/><circle cx="15" cy="10" r="1.5" fill="#FF9E52"/><path d="M7 14.5 Q12 19 17 14.5" stroke="#FF9E52" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+                Excited
+              </button>
+              <button class="mood-btn" onclick="selectMood(this,'calm')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#C8DEF5"/><circle cx="9" cy="10" r="1.5" fill="#5A9ED4"/><circle cx="15" cy="10" r="1.5" fill="#5A9ED4"/><path d="M9 15 L15 15" stroke="#5A9ED4" stroke-width="2" stroke-linecap="round"/></svg>
+                Calm
+              </button>
+              <button class="mood-btn" onclick="selectMood(this,'anxious')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FFD4D4"/><circle cx="9" cy="10" r="1.5" fill="#F07070"/><circle cx="15" cy="10" r="1.5" fill="#F07070"/><path d="M9 15.5 Q12 13 15 15.5" stroke="#F07070" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+                Anxious
+              </button>
+              <button class="mood-btn" onclick="selectMood(this,'sad')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#E8DEF5"/><circle cx="9" cy="10" r="1.5" fill="#9B7DC4"/><circle cx="15" cy="10" r="1.5" fill="#9B7DC4"/><path d="M9 16 Q12 13 15 16" stroke="#9B7DC4" stroke-width="2" stroke-linecap="round" fill="none"/></svg>
+                Sad
+              </button>
+              <button class="mood-btn" onclick="selectMood(this,'alert')">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" fill="#FFE8C8"/><circle cx="9" cy="10" r="1.5" fill="#D4850A"/><circle cx="15" cy="10" r="1.5" fill="#D4850A"/><path d="M8 9 Q12 6 16 9" stroke="#D4850A" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+                Alert
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/></svg>
+              Intensity Level (1–10)
+            </label>
+            <input type="range" id="intensityRange" min="1" max="10" value="5"
+              style="width:100%;accent-color:var(--yellow-deep);height:6px;margin-top:8px;"
+              oninput="document.getElementById('intensityVal').textContent=this.value"/>
+            <div style="display:flex;justify-content:space-between;margin-top:5px;">
+              <span style="font-size:10px;font-weight:700;color:var(--brown-light);">Low</span>
+              <span style="font-size:12px;font-weight:800;color:var(--brown-text);">Level: <span id="intensityVal">5</span></span>
+              <span style="font-size:10px;font-weight:700;color:var(--brown-light);">High</span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Stress Trigger (optional)
+            </label>
+            <select class="form-select">
+              <option value="">No trigger identified</option>
+              <option>Loud noise / fireworks</option>
+              <option>Stranger / new person</option>
+              <option>Separation anxiety</option>
+              <option>Other animals</option>
+              <option>Thunderstorm</option>
+              <option>Car / travel</option>
+              <option>Vet visit</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">
+              <svg class="icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              Notes (optional)
+            </label>
+            <textarea class="form-textarea" placeholder="Describe what happened, duration, context…"></textarea>
+          </div>
+
+          <div class="submit-area">
+            <button class="btn-submit" onclick="submitLog()">Save Entry</button>
+            <button class="btn-reset" onclick="resetForm()">Clear</button>
+          </div>
+        </div>
+
+        <!-- Today's entries -->
+        <div class="log-table-wrap">
+          <div class="log-table-header">Today's Logged Entries (3)</div>
+          <table>
+            <thead>
+              <tr><th>Time</th><th>Activity</th><th>Mood</th><th>Level</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>10:24 AM</td>
+                <td>Playing</td>
+                <td><span class="mood-chip badge-green">Happy</span></td>
+                <td>9/10</td>
+              </tr>
+              <tr>
+                <td>8:10 AM</td>
+                <td>Feeding</td>
+                <td><span class="mood-chip badge-orange">Excited</span></td>
+                <td>8/10</td>
+              </tr>
+              <tr>
+                <td>7:30 AM</td>
+                <td>Walk</td>
+                <td><span class="mood-chip badge-green">Happy</span></td>
+                <td>7/10</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+      </div><!-- /log -->
+
+
+      <!-- ═══════════════ INSIGHTS PAGE ═══════════════ -->
+      <div class="page-section" id="page-insights">
+
+        <div class="insights-page-header">
+          <div>
+            <div class="insights-hero-title">Mochi's Patterns</div>
+            <div class="insights-hero-sub">AI analysis · 47 events · last 30 days</div>
+          </div>
+          <span class="stat-badge badge-green" style="font-size:11px;padding:5px 12px;">Good Health ✓</span>
+        </div>
+
+        <div class="section-label">Top Behavioral Patterns</div>
+        <div class="pattern-list">
+          <div class="pattern-item">
+            <div class="pattern-rank">01</div>
+            <div class="pattern-content">
+              <div class="pattern-name">Morning Peak Activity (9–11 AM)</div>
+              <div class="pattern-desc">Most energetic and social in the morning. Play requests and mood scores peak during this window.</div>
+              <button class="pattern-action" onclick="showPage('log', document.querySelectorAll('.bn-item')[1])">Schedule morning play →</button>
+            </div>
+            <div class="pattern-score">
+              <div class="pattern-pct">92%</div>
+              <div class="pattern-pct-label">Consistent</div>
+            </div>
+          </div>
+
+          <div class="pattern-item">
+            <div class="pattern-rank">02</div>
+            <div class="pattern-content">
+              <div class="pattern-name">Evening Noise Sensitivity</div>
+              <div class="pattern-desc">Stress behaviors reliably appear 7–10 PM on noisy nights. Pattern persisting 3+ weeks.</div>
+              <button class="pattern-action" style="background:var(--red-soft);border-color:var(--red-accent);color:var(--red-accent);">Needs intervention</button>
+            </div>
+            <div class="pattern-score">
+              <div class="pattern-pct">86%</div>
+              <div class="pattern-pct-label">Consistent</div>
+            </div>
+          </div>
+
+          <div class="pattern-item">
+            <div class="pattern-rank">03</div>
+            <div class="pattern-content">
+              <div class="pattern-name">Post-Walk Mood Elevation</div>
+              <div class="pattern-desc">Outdoor walks produce a positive mood shift lasting 2–4 hours. Longer walks = longer elevation.</div>
+              <button class="pattern-action" onclick="showPage('log', document.querySelectorAll('.bn-item')[1])">Log a walk →</button>
+            </div>
+            <div class="pattern-score">
+              <div class="pattern-pct">78%</div>
+              <div class="pattern-pct-label">Consistent</div>
+            </div>
+          </div>
+
+          <div class="pattern-item">
+            <div class="pattern-rank">04</div>
+            <div class="pattern-content">
+              <div class="pattern-name">Meal Anticipation Excitement</div>
+              <div class="pattern-desc">Excited behaviors appear 15–30 min before feeding, showing strong time-associative memory.</div>
+              <button class="pattern-action">Keep schedule consistent</button>
+            </div>
+            <div class="pattern-score">
+              <div class="pattern-pct">94%</div>
+              <div class="pattern-pct-label">Consistent</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-label">30-Day Mood Trend</div>
+        <div class="chart-card" style="margin-bottom:16px;">
+          <div class="chart-header">
+            <div>
+              <div class="chart-title">30-Day Mood Overview</div>
+              <div class="chart-subtitle">Daily average score</div>
+            </div>
+            <span class="chart-tag badge-green">Trending Up +12%</span>
+          </div>
+          <div class="chart-wrap" style="height:150px;">
+            <canvas id="insightsMoodChart"></canvas>
+          </div>
+        </div>
+
+        <div class="section-label">Recommendations</div>
+        <div class="insights-grid">
+          <div class="insight-card" style="border-color:var(--green-accent);background:linear-gradient(135deg,var(--warm-white),var(--green-soft));">
+            <div class="insight-icon-wrap" style="background:white;border-color:var(--green-accent);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5DBB7A" stroke-width="2.5" stroke-linecap="round"><polyline points="20,6 9,17 4,12"/></svg>
+            </div>
+            <div>
+              <div class="insight-tag recommendation">Recommendation</div>
+              <div class="insight-title">Extend Morning Play</div>
+              <div class="insight-desc">Schedule 25–30 min of active play 9–11 AM to maximize daily mood baseline.</div>
+              <button class="pattern-action" style="margin-top:8px;" onclick="showPage('log', document.querySelectorAll('.bn-item')[1])">+ Log play now</button>
+            </div>
+          </div>
+
+          <div class="insight-card" style="border-color:var(--yellow-deep);background:linear-gradient(135deg,var(--warm-white),var(--yellow-soft));">
+            <div class="insight-icon-wrap" style="background:white;border-color:var(--yellow-deep);">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#F5B800" stroke-width="2.5" stroke-linecap="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+            </div>
+            <div>
+              <div class="insight-tag alert">Priority Action</div>
+              <div class="insight-title">Create a Calm Evening Space</div>
+              <div class="insight-desc">Try white noise or a comfort blanket to reduce evening noise sensitivity.</div>
+              <button class="pattern-action" style="margin-top:8px;">Mark as done ✓</button>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /insights -->
+
+
+      <!-- ═══════════════ PROFILE PAGE ═══════════════ -->
+      <div class="page-section" id="page-profile">
+
+        <div class="profile-section">
+          <div class="profile-avatar"></div>
+          <div class="profile-name">Mochi</div>
+          <div class="profile-breed">Shiba Inu · 2 years old</div>
+          <div class="mood-today-chip" style="display:inline-flex;margin-top:10px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+              <circle cx="12" cy="12" r="10" fill="#5DBB7A" opacity="0.3"/>
+              <circle cx="9" cy="10" r="1.5" fill="#5DBB7A"/>
+              <circle cx="15" cy="10" r="1.5" fill="#5DBB7A"/>
+              <path d="M8 14.5 Q12 18 16 14.5" stroke="#5DBB7A" stroke-width="2" stroke-linecap="round" fill="none"/>
+            </svg>
+            Happy today!
+          </div>
+        </div>
+
+        <div class="profile-stats">
+          <div class="profile-stat">
+            <div class="ps-value">47</div>
+            <div class="ps-label">Logs</div>
+          </div>
+          <div class="profile-stat">
+            <div class="ps-value">8.1</div>
+            <div class="ps-label">Avg Mood</div>
+          </div>
+          <div class="profile-stat">
+            <div class="ps-value">30d</div>
+            <div class="ps-label">Streak</div>
+          </div>
+        </div>
+
+        <div class="section-label">Settings</div>
+        <div class="settings-list">
+          <div class="settings-item">
+            <div class="settings-icon"></div>
+            <div>
+              <div class="settings-text">Manage Pets</div>
+              <div class="settings-sub">Add or edit your pets</div>
+            </div>
+            <span class="settings-arrow">›</span>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon"></div>
+            <div>
+              <div class="settings-text">Reminders</div>
+              <div class="settings-sub">Daily log reminders</div>
+            </div>
+            <span class="settings-arrow">›</span>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon"></div>
+            <div>
+              <div class="settings-text">Export Data</div>
+              <div class="settings-sub">Download vet-ready PDF</div>
+            </div>
+            <span class="settings-arrow">›</span>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon"></div>
+            <div>
+              <div class="settings-text">Pet Encyclopedia</div>
+              <div class="settings-sub">Breeds, care & health tips</div>
+            </div>
+            <span class="settings-arrow">›</span>
+          </div>
+          <div class="settings-item">
+            <div class="settings-icon"></div>
+            <div>
+              <div class="settings-text">Help & Feedback</div>
+              <div class="settings-sub">We'd love to hear from you</div>
+            </div>
+            <span class="settings-arrow">›</span>
+          </div>
+        </div>
+
+        <div style="text-align:center;padding:20px 0 8px;font-size:11px;font-weight:700;color:var(--brown-light);">
+          PawInsight v1.0 · Made with for pets everywhere
+        </div>
+
+      </div><!-- /profile -->
+
+    </main><!-- /app-content -->
+
+    <!-- ── BOTTOM NAV ── -->
+    <nav class="bottom-nav">
+      <div class="bn-item active" onclick="showPage('dashboard',this)">
+        <div class="bn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"/>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"/>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"/>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"/>
+          </svg>
+        </div>
+        <div class="bn-label">Home</div>
+      </div>
+
+      <div class="bn-item" onclick="showPage('log',this)">
+        <div class="bn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14,2 14,8 20,8"/>
+            <line x1="12" y1="18" x2="12" y2="12"/>
+            <line x1="9" y1="15" x2="15" y2="15"/>
+          </svg>
+        </div>
+        <div class="bn-label">Log</div>
+      </div>
+
+      <div class="bn-item" onclick="showPage('insights',this)">
+        <div class="bn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <polyline points="22,12 18,12 15,21 9,3 6,12 2,12"/>
+          </svg>
+        </div>
+        <div class="bn-label">Insights</div>
+      </div>
+
+      <div class="bn-item" onclick="showPage('profile',this)">
+        <div class="bn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </div>
+        <div class="bn-label">Profile</div>
+      </div>
+    </nav>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20,6 9,17 4,12"/></svg>
+      Behavior logged successfully!
+    </div>
+
+  </div><!-- /app-view -->
+
+</div><!-- /phone-shell -->
+
+<script src="app.js"></script>
+</body>
+</html>
